@@ -1,0 +1,35 @@
+Single room: these rooms are assigned to one person or a couple. It may have one or more beds, 
+but the size of the bed depends on the hotel.Some single rooms have a twin bed, most will have
+a double, few will have a queen bed.
+
+Double room: double rooms are assigned to two people; expect one double bed, or two twin beds
+depending on the hotel.
+
+Triple room: as the name might suggest, this room is equipped for three people to stay.
+The room will have a combination of either three twin beds, one double bed and a twin,
+or two double beds.
+
+Quad room: a quad room is set up for four people to stay comfortably. This means the room 
+will have two double beds. Some, however, may be set up dormitory-style with bunks or twins, 
+so check with the property to make sure.
+
+Standard room: a standard room is likely the same as a queen or a single room, great for a 
+solo traveler or a couple. Expect a double bed. 
+
+Deluxe room: these rooms might be a bit bigger with slightly upgraded amenities or a nicer view. 
+These rooms are typically equipped for groups who need more space, like a couple or small family. 
+
+Joint room: a joint room, sometimes called an adjoining room, refers to two rooms that share a
+common wall but no connecting door. Joint rooms are meant for families with younger children who
+may be old enough to stay in their own space, but not too far from their parents.
+
+Connecting room: these rooms have a connecting door between them, as well as individual doors to
+get to the outside. Great for families or groups who don’t want to have to walk through the hallway
+to move between rooms.
+
+Suite: suites come in a few different sizes. A basic suite or executive suite comes with a separate
+living space connected to one or more bedrooms. This set up is sometimes also called a master suite. 
+A mini-suite or junior suite refers to a single room with a bed and sitting area. Some suites also 
+come with kitchenettes. The presidential suite, as the name would suggest, is usually the most 
+expensive room provided by a hotel. It will have one or more bedrooms, a living space, and impressive
+amenities, decoration, and tailor-made services. 

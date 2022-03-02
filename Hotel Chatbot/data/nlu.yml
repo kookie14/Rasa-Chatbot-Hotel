@@ -1,0 +1,1636 @@
+version: "3.0"
+
+nlu:
+- intent: confirm
+  examples: |
+    - yes
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+    - Ok, I'll take it
+    - I'll to book this room
+    - Oke, I like this room
+    - I think it's suitable for me
+    - I like it
+    - I confirm booking this room
+    - I agreeeee
+    - So good, I take it
+    - Awesome!
+    - Certainly
+    - I accept
+    - I accept.
+    - I agree
+    - I agrees 
+    - I am using it
+    - I changed my mind. I want to accept it
+    - I do
+    - I get it
+    - I guess so
+    - I have used it in the past
+    - I will
+    - I'd absolutely love that
+    - I'm sure I will!
+    - I'm using it
+    - OK
+    - Ofcourse
+    - Oh yes
+    - Oh, ok
+    - Ok
+    - Ok let's start
+    - Ok.
+    - Okay
+    - Okay!
+    - PLEASE
+    - SURE
+    - Sure
+    - Sweet
+    - That would be great
+    - YUP
+    - Yea
+    - Yeah
+    - Yeah sure
+    - Yep
+    - Yep that's fine
+    - Yep!
+    - Yepp
+    - Yes I do
+    - Yes please
+    - Yes please!
+    - Yes, I accept
+    - Yes.
+    - Yup
+    - a little
+    - absolutely
+    - accept
+    - accepted
+    - agreed
+    - ah ok
+    - alright
+    - alright, cool
+    - amayzing
+    - amazing!
+    - awesome
+    - awesome!
+    - confirm
+    - cool story bro
+    - definitely yes without a doubt
+    - done
+    - fair enough
+    - fcourse
+    - fine
+    - fuck yeah!
+    - go
+    - go ahead
+    - go for it
+    - going super well
+    - great lets do that
+    - hell yeah
+    - hell yes
+    - hm, i'd like that
+    - how nice!
+    - i accept
+    - i agree
+    - i am!
+    - i want that
+    - i will!
+    - it is ok
+    - its okay
+    - ja
+    - ja cool
+    - ja thats great
+    - jezz
+    - jo
+    - k
+    - kk
+    - lets do it
+    - lets do this
+    - of course
+    - ofcoure i do
+    - ofcourse
+    - oh awesome!
+    - oh cool
+    - oh good !!
+    - oh super
+    - ok
+    - ok cool
+    - ok fine
+    - ok friend
+    - ok i accept
+    - ok sara
+    - ok, I understood
+    - ok, Sara
+    - ok...
+    - okay
+    - okay cool
+    - okay sure
+    - okay..
+    - oki doki
+    - okie
+    - ook
+    - oui
+    - perfect
+    - please
+    - si
+    - sort of
+    - sure
+    - sure thing
+    - sure!
+    - that is cool
+    - that ok
+    - that sounds fine
+    - that's great
+    - thats fine
+    - thats good
+    - thats great
+    - top
+    - uh-huh
+    - very much
+    - well yes
+    - ya
+    - ya cool
+    - ya go for it
+    - ya i want
+    - ya please
+    - ya thats cool
+    - yaah
+    - yap
+    - yaps
+    - yas
+    - yay
+    - ye
+    - ye splease
+    - yea
+    - yeah
+    - yeah do that
+    - yeah sure
+    - yeah'=
+    - yeah, why not
+    - yeeeeezzzzz
+    - yeeees
+    - yep
+    - yep i want that
+    - yep if i have to
+    - yep please
+    - yep that's nice
+    - yep thats cool
+    - yep, will do thank you
+    - yep. 
+    - yes ...
+    - yes I do
+    - yes accept please
+    - yes baby
+    - yes cool
+    - yes give me information
+    - yes go ahead
+    - yes go for it
+    - yes great
+    - yes i accept
+    - yes i agree
+    - yes i have built a bot before
+    - yes i have!
+    - yes it is
+    - yes it was okay
+    - yes of course
+    - yes pleae
+    - yes please
+    - yes please!
+    - yes pls
+    - yes sirfr
+    - yes that's great
+    - yes that's what i want
+    - yes you can
+    - yes'
+    - yes, I'd love to
+    - yes, cool
+    - yes, give me information, please
+    - yes,i am
+    - yes.
+    - yesh
+    - yess
+    - yessoo
+    - yesss
+    - yesssss
+    - yesyestyes
+    - yesyesyes
+    - yez
+    - yop
+    - you asked me a yes or no question, which i answered with yes
+    - you got me, I accept, if you want me to
+    - yres
+    - ys
+    - yup
+    - yyeeeh
+    - Okay cool
+    - ok..
+    - considering
+    - More a less
+    - sounds good!
+    - really
+
+- intent : stop
+  examples: |
+    - I wanna stop it
+    - Stop! 
+    - I feel unsuitable, so stop it, please
+    - I wanna cease this service, please
+    - please, cease this service
+    - Feeling uncomfortable, help me cease this booking
+    - Sorry, I wanna quit this reservation
+    - So sorry, because of some personal reasons, I have to quit my reservation
+    - May I discontinue?
+    - I regret to say that I have to halt my booking
+  
+- intent: greet
+  examples: |
+    - hey
+    - hey man
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+    - hi there
+    - hello there
+    - Hey you
+    - It is my honor to meet you.
+    - It is my pleasure to meet you.
+    - Nice to meet you.
+    - Bom dia
+    - Bonjour
+    - Good Morning
+    - Good morning
+    - Good mourning
+    - Guten Morgen
+    - HELLO
+    - HEY
+    - HEllo
+    - HI
+    - HI Sara
+    - Hallo
+    - Hei
+    - Hellllooooooo
+    - Hello
+    - Hello Bot
+    - Hello Rasa
+    - Hello Sara
+    - Hello sara
+    - Hello!
+    - Hey
+    - Hey Sara
+    - Hey bot
+    - Heya
+    - Heylo
+    - Hi
+    - Hi Sara
+    - Hi Sara!
+    - Hi bot
+    - Hi man
+    - Hi rasa
+    - Hi sara
+    - Hi sara..
+    - Hi there
+    - Hi!
+    - Hi'
+    - Hi,
+    - Hi, bot
+    - Hieee
+    - Hieeeeeeeeeeeee
+    - Hola
+    - I said, helllllloooooO!!!!
+    - Well hello there ;)
+    - What is up?
+    - Whats up
+    - Whats up my bot
+    - Whats up?
+    - ayyyy whaddup
+    - bonjour
+    - ey boss
+    - good evening
+    - good moring
+    - good morning
+    - greet
+    - greetings
+    - hai
+    - hallo
+    - hallo sara
+    - halloo
+    - halloooo
+    - halo
+    - halo sara
+    - heeey
+    - heelio
+    - hell9o
+    - hellio
+    - hello
+    - hello Sara
+    - hello everybody
+    - hello friend
+    - hello hi
+    - hello is anybody there
+    - hello it is me again
+    - hello robot
+    - hello sara
+    - hello sweatheart
+    - hello sweet boy
+    - hello there
+    - hello world
+    - hello?
+    - hello]
+    - hellooo
+    - helloooo
+    - helo
+    - hey
+    - hey bot
+    - hey bot!
+    - hey dude
+    - hey hey
+    - hey let's talk
+    - hey rasa
+    - hey sara
+    - hey ther
+    - hey there
+    - hey there boy
+    - hey there..
+    - hey, let's talk
+    - hey, sara!
+    - heya
+    - heyho
+    - heyo
+    - hhola
+    - hi
+    - hi !
+    - hi Mister
+    - hi again
+    - hi can you speak ?
+    - hi folks
+    - hi friend
+    - hi friends
+    - hi hi
+    - hi i'm [Sandra Hernandez](name)
+    - hi im [Amanda Anderson](name)
+    - hi mrs rasa
+    - hi pal!
+    - hi sara
+    - hi there
+    - hi there it's me
+    - hi!
+    - hi.........................................................
+    - hi?
+    - hieee
+    - hii
+    - hiihihi
+    - hiii
+    - hlo
+    - hola
+    - howdy
+    - i am [Karen Mease](name)
+    - jojojo
+    - jop
+    - konichiwa
+    - merhaba
+    - ola sara
+    - rasa hello
+    - salut
+    - sup
+    - wasssup
+    - wasssup!
+    - what up
+    - whats popping
+    - whats up
+    - yo
+    - yoo
+    - ssup?
+    - helleo
+
+- intent: deny
+  examples: |
+    - no, thank you.
+    - bye!
+    - bye bye!
+    - I don't want to,thanks
+    - goodbye
+    - No!
+    - I don't have any other request
+    - No, Bye!
+    - i'm not, thank you so much.
+    - I don't want to
+    - I don't want to give it to you
+    - I don't want to say
+    - I dont want to tell
+    - I'm not giving you my email address
+    - I'm not going to give it to you
+    - NEIN
+    - NO
+    - NO DON"T WANT THIS!
+    - Nah
+    - Neither
+    - Never
+    - Nevermind
+    - No no no 
+    - No thank you
+    - No, not really.
+    - No, thank you
+    - No no.
+    - Nopes
+    - Not really
+    - absolutely not
+    - decline
+    - definitely not
+    - deny
+    - i decline
+    - i don not like this
+    - i don't think so
+    - i don't want either of those
+    - i don't want to
+    - i don't want to give you my email
+    - i dont want to
+    - i dont want to accept :P lol
+    - i guess it means - no
+    - i'm afraid not
+    - i'm not sure
+    - it is going pretty badly
+    - it sucks
+    - it sux
+    - n
+    - na
+    - nah
+    - nah I'm good
+    - nah not for me
+    - nah, first time
+    - nah, i'm good
+    - nehi
+    - nein
+    - neither
+    - never
+    - never mind
+    - no
+    - no :(
+    - no I dont want
+    - no I haven't decided yet if I want to sign up
+    - no and no again
+    - no bots at all
+    - no go
+    - no i can't
+    - no i don't accept
+    - no i dont want to
+    - no i dont want to accept :P lol
+    - no i won't
+    - no ma'am
+    - no sir
+    - no sorry
+    - no thank s
+    - no thank you
+    - no thanks
+    - no way
+    - no you did it wrong
+    - no!!!!
+    - no, i hate it
+    - no, my frst time
+    - no, thank you
+    - no, thanks
+    - no, thankyou
+    - no. u r idiot
+    - non
+    - noooooooooo
+    - noooooooooooooooooooooooooooooooooooooooo
+    - nop
+    - nope
+    - nope!
+    - nope. i am good
+    - not going well at all
+    - not really
+    - not right now
+    - not yet
+    - nö
+    - sorry not right now
+    - still dont want to tell
+    - thanks but no thanks
+    - this sucks
+    - I do not need help installing
+    - I don't wanna tell the name of my company
+    - none of them
+    - I don't agree
+    - No, I don't
+    - No, I dont
+
+- intent: inform_name # khách hàng cung cấp tên 
+  examples: |
+    - My name is [Lauriel](m_name)
+    - You can call me [Paine](m_name)
+    - My nickname is [Airi](m_name)
+    - I am [Alice](m_name)
+    - I'm [Nguyen Manh Cuong](m_name)
+    - I'm [Eric Arthur](m_name)
+    - I'm [Hung](m_name)
+    - I'm [Cuong](m_name)
+    - People call me [Alex](m_name)
+    - My full name is [John](m_name)
+    - My last name is [Trinh Thi Cuc](m_name)
+    - Please call me [robert](m_name)
+    - Everyone calls me [Annette](m_name)
+    - My last name is [violet](m_name)
+    - My friends call me [laura](m_name)
+    - [Dacid](m_name) is my name
+    - [Le hung viet](m_name)
+    - [tran Van Thing](m_name)
+    - [Nguyen thanh Quoc](m_name)
+    - They call me [Adam](m_name)
+    - their name are [Quan](m_name)
+    - My father's name is [Tom](m_name)
+    - my friend's name is [Son](my_name)
+    - my parents' names are [James](my_name)
+    - My father's name is [dinh bao minh](m_name)
+    - my friend's name is [le hong quan](my_name)
+    - my parents' names are [huyen mai](my_name)
+    - [John Doe](my_name)
+    - My name is [Eugen Zenobios](my_name) 
+    - My name is [Deb Tula](my_name)
+    - [Jamin Benedikt](my_name)
+    - [Tobias Otto](my_name) is the name
+    - [Athaulf Manuel](my_name)
+    - In the name of [Iulia Dubaku](my_name)
+    - Myself [Andre Anu](my_name)
+    
+- regex: my_name
+  examples: |
+    - [a-zA-Z][a-zA-Z.\ ]+
+
+- regex: num_people
+  examples: |
+    - [1-9][0-9]*
+    
+- intent: request_booking_room # khách cung cấp loại phòng và số phòng muốn đặt
+  examples: |
+    - I'd like to make a reservation
+    - I want to make a reservation
+    - I want to book [a](quantity) room
+    - I want to book [a](quantity) room for my stay
+    - I need [a](quantity) room
+    - I would like to book [a](quantity) room
+    - I would like to book rooms
+    - can you book [a](quantity) room?
+    - book room
+    - book the room
+    - Book a room
+    - Book room for my stay
+    - book rooms
+    - book the rooms
+    - book rooms
+    - book the rooms
+    - May I book room here?
+    - Can I make a reservation ?
+    - Do you have any vacancies?
+    - Do you have any vacancies tonight? 
+    - is room empty
+    - book a room for a night.
+    - [single](room_type)
+    - [double](room_type)
+    - [superior](room_type)
+    - [Deluxe](room_type)
+    - [suite](room_type)
+    - [standard](room_type)
+    - i need [deluxe](room_type) room
+    - i want [deluxe](room_type) room
+    - [deluxe](room_type) rooms
+    - can i get the [deluxe](room_type) rooms
+    - i am looking for [deluxe](room_type) rooms
+    - Are there a [superior](room_type) room ?
+    - I need [two](quantity) rooms
+    - Can i make a reservation?
+    - I need [three](quantity) [double](room_type) rooms
+    - I need [1]{"entity": "quantity", "group": "1"} [standard]{"entity": "room_type" , "group": "1"} room and [a]{"entity": "quantity", "group": "2"} [suite]{"entity": "room_type" , "group": "2"} room
+    - I want [2]{"entity": "quantity"} [single](room_type) rooms
+    - Can i book [one]{"entity": "quantity"} [single](room_type) room?
+    - I want to book [one]{"entity": "quantity", "group": "1"} [double]{"entity": "room_type" , "group": "1"} room and [two]{"entity": "quantity", "group": "2"} [single]{"entity": "room_type" , "group": "2"} rooms
+    - i want to book [2](quantity) rooms for my stay
+    - i would like to book [1](quantity) room
+    - I want to book [2](quantity) rooms
+    - book [2](quantity) [superior](room_type) rooms for me
+    - need [1](quantity) [superior](room_type) room
+    - book [1](quantity) [superior](room_type) room
+    - book [2](quantity) [double](room_type) rooms
+    - need [2](quantity) [double](room_type) rooms to book
+    - [2](quantity) [double](room_type) rooms
+    - [3](quantity) [standard](room_type) room
+    - [4](quantity) [standard](room_type) ooms
+    - [six](quantity) [standard](room_type) rooms
+    - [seven](quantity) [suite](room_type) room
+    - [eight](quantity) [suite](room_type) rooms
+    - [nine](quantity)
+    - [ten](quantity)
+    - I want to book [2](quantity) rooms
+    - want to book [1](quantity)  room
+    - want to book [2](quantity) rooms
+    - I want to book [1](quantity) room
+    - can you check [2](quantity) rooms is available or not?
+    - want [2](quantity) rooms
+    - I'd like to book [three](quantity) room
+    - I'd like to book [3](quantity) [double](room_type) room
+    - I need [two](quantity) room
+    - Do you have any vacancies?  
+    - I want to book [a](quantity) room
+    - I wanna book [a](quantity) [suite](room_type) room
+    - I would like to book [1](quantity) [single](room_type) room
+    - [single](room_type)
+    - [single](room_type) rooms
+    - [single](room_type) room
+    - [standard](room_type)
+    - [standard](room_type) rooms
+    - [standard](room_type) room
+    - i need [a]{"entity": "quantity", "group": "1"} [suite]{"entity": "room_type", "group": "1"} room and [a]{"entity": "quantity", "group": "2"} [deluxe]{"entity": "room_type", "group": "2"} room
+    - i want [1]{"entity": "quantity", "group": "1"} [single]{"entity": "room_type", "group": "1"} room and [two]{"entity": "quantity", "group": "2"} [superior]{"entity": "room_type", "group": "2"} room
+    - i want [2]{"entity": "quantity", "group": "1"} [superior]{"entity": "room_type", "group": "1"} room and [one]{"entity": "quantity", "group": "2"} [double]{"entity": "room_type", "group": "2"} room
+    - i need [3]{"entity": "quantity", "group": "1"} [single]{"entity": "room_type", "group": "1"} room and [four]{"entity": "quantity", "group": "2"} [standard]{"entity": "room_type", "group": "2"} room
+    - I want to book [a](quantity) room for [two children](room_type)
+    - I wanna book [a](quantity) room for [three children](room_type)
+    - I would like to book [a](quantity) room for [two people](room_type)
+    - I want to book [two] room for [one person](room_type)
+    - I want to book [a](quantity) room for [one people](room_type)
+    - I wanna book [2](quantity) room for [one people](room_type)
+    - I would like to book [1](quantity) room for [two people](room_type)
+    - I want to book [three] room for [two person](room_type)
+    - I want to book [an](quantity) room for [two people](room_type)
+    - I wanna book [an](quantity) room for [three people](room_type)
+    - I would like to book [a](quantity) room for [two people](room_type)
+    - I want to book [two] room for [one](room_type)
+    - I want to book [a](quantity) room for [one](room_type)
+    - I wanna book [2](quantity) room for [two](room_type)
+    - I would like to book [1](quantity) room for [three](room_type)
+    - I want to book [3](quantity) room for [2](room_type)
+    - I want to book [2](quantity) room for [1](room_type)
+    - I want to book [1](quantity) room for [3](room_type)
+    - I want to book [three](quantity) room for [two](room_type)
+    - [a](quantity) room [for 1](room_type)
+    - [an](quantity) room [for 2](room_type)
+    - [two](quantity) room [for one](room_type)
+    - [three](quantity) room [for two](room_type)
+    - I need [two](quantity) room [for 1](room_type)
+    - I need [an](quantity) room [for 2](room_type)
+    - I need [a](quantity) room [for one](room_type)
+    - I need [three](quantity) room [for two](room_type)
+    - i need to book [a]{"entity": "quantity", "group": "1"} [suite]{"entity": "room_type", "group": "1"} room and [a]{"entity": "quantity", "group": "2"} [deluxe]{"entity": "room_type", "group": "2"} room
+    - i want to book [1]{"entity": "quantity", "group": "1"} [single]{"entity": "room_type", "group": "1"} room and [two]{"entity": "quantity", "group": "2"} [superior]{"entity": "room_type", "group": "2"} room
+    - i want to book [2]{"entity": "quantity", "group": "1"} [superior]{"entity": "room_type", "group": "1"} room and [one]{"entity": "quantity", "group": "2"} [double]{"entity": "room_type", "group": "2"} room
+    - i need to book [3]{"entity": "quantity", "group": "1"} [single]{"entity": "room_type", "group": "1"} room and [four]{"entity": "quantity", "group": "2"} [standard]{"entity": "room_type", "group": "2"} room
+    - [a]{"entity": "quantity", "group": "1"} [suite]{"entity": "room_type", "group": "1"} room and [a]{"entity": "quantity", "group": "2"} [deluxe]{"entity": "room_type", "group": "2"} room
+    - [1]{"entity": "quantity", "group": "1"} [single]{"entity": "room_type", "group": "1"} room and [two]{"entity": "quantity", "group": "2"} [superior]{"entity": "room_type", "group": "2"} room
+    - [2]{"entity": "quantity", "group": "1"} [superior]{"entity": "room_type", "group": "1"} room and [one]{"entity": "quantity", "group": "2"} [double]{"entity": "room_type", "group": "2"} room
+    - [3]{"entity": "quantity", "group": "1"} [single]{"entity": "room_type", "group": "1"} room and [four]{"entity": "quantity", "group": "2"} [standard]{"entity": "room_type", "group": "2"} room
+    - i want [vip](room_type) room
+    - i want [vip](room_type) room
+    - i need [normal](room_type) room
+    - i need [normal](room_type) room
+    - i'd like [triple](room_type) room
+    - i would like [triple](room_type) room   
+    - i want [vip](room_type) room
+    - i need [normal](room_type) room
+    - i need [resort](room_type) room
+    - i'd like [triple](room_type) room
+    - [resort](room_type) room
+    - [1](quantity)
+    - [2](quantity)
+    - [one](quantity)
+    - [two](quantity)
+
+- intent: booking_change_reservation # khách muốn thay đổi phòng
+  examples: |
+    - I want to change room
+    - I wanna change another room
+    - yes, i want to change.
+    - I want to choose another room.
+    - I'd like to book another room.
+    - Sorry,I wanna book another room
+    - let me choose another room
+    - let me change another room
+    - I need a better room
+    - I need to choose another room
+    - Can I have another room, please?
+    - I think this room is unsuitable for me, are there another room?
+    - Are there another room?
+    - I want a deluxe room instead of superior room
+    - Do you have a cheaper room?
+    - Do you have a different room?
+    - This room is unsuitable, so can you have another room?
+    - I'm afraid I wanna a different room?
+    - I feel this room unfit for me, so I want change it
+    - Let me see another room
+    - Are there a better room than that?
+    - My friend wanna change this room
+    - I want to change my [standard](change_room_type) room to [single](change_room_type) room
+    - I want to change my [superior](change_room_type) room to [double](change_room_type) room
+    - I want to change my [double](change_room_type) room to [suite](change_room_type) room
+    - I want to change my [single](change_room_type) room to [standard](change_room_type) room
+    - I wanna book a [single](change_room_type) room instead of [double](change_room_type) room
+    - Let me change from [superior](change_room_type) room to [deluxe](change_room_type) room
+    - Can you help me change this [double](change_room_type) room to [single](change_room_type) room
+    - May I have [suite](change_room_type) room altered to [standard](change_room_type) room?
+    - I'm afraid, I want change [deluxe](change_room_type) room to [superior](change_room_type) room?
+    - I want to change to [suite](change_room_type) room
+    - I wanna change to [superior](change_room_type) room
+    - I would like change to [single](change_room_type) room
+    - I'd like change to [single](change_room_type) room
+    
+- intent: booking_this_room  #khách hàng muốn đặt phòng này
+  examples: | 
+    - i want to book this room 
+    - i want to book this room type
+    - i want to book these room 
+    - i want to book that room type
+    - i want to book those room 
+    - I will book this room type
+    - i will book these room 
+    - i will book that room type
+    - i will book those room 
+    - I will choose this room type
+    - No, i don't want to change the room
+    - I want to choose this room type
+    - I will take this room type
+    - No, i like it
+    - I like this room
+    - I don't need to change rooms
+    - I will stay in this room
+    - i don't need, thanks.
+    - Ok, I'll take it
+    - I'll to book this room
+    - Can I see the room right now?
+    - I think it's suitable for me
+    - I like it
+    - I booking this room
+    - So good, I take it
+
+- intent: book_room_now    # khách hàng đặt phòng luôn
+  examples: |
+    - I will be here now
+    - I want a room immediately
+    - I book a room now 
+    - Can you prepare for me a room in some minutes?
+    - I check in now
+    - book now
+    - I want to check in now
+    - I want to make a reservation for today
+    - I need room for tonight
+    - Please help me a room now
+    - Can I book a room just now?
+    - Are there any beds vacant now?
+    - Do you have any vacancies tonight?
+    - Right now
+    - Do you have any double rooms available today?
+    - I'd like a room for 2 nights at the moment, please
+    - I want a twin room right now
+    - Please help me a room now
+    - I want a room immediately
+    - Can you prepare for me a room in some minutes?
+    - Can I book a room just now?
+
+- intent: book_in_advance 
+  examples: |
+    - I wanna book this room [tomorrow](intend_time)
+    - make a reservation
+    - I want to make a reservation
+    - I want to make a reservation in advance
+    - I would like to book the room in advance
+    - I want to book [2 days](intend_time) in advance
+    - My father want to check in on [January 21](intend_time)
+    - My friend will check in [tomorrow](intend_time)
+    - I will check in from [Saturday](intend_time)
+    - I will come to check in in [a few days](intend_time)
+    - I'd like to make a reservation for [next week](intend_time)
+    - I'd like to book the room for my friend for [tomorrow night](intend_time)
+    - I'd like to make a reservation
+    - I want a room for [tomorrow](intend_time)
+    - Do you have any vacancies [tomorrow]?(intend_time)
+    - Is it necessary to book ahead?
+    - I'd like to book the room for [September 9th](intend_time)
+    - I'd like to book the room for [the next four days](intend_time)
+    - Can I reserve the room suite from [December 20th](intend_time) to November 28th?
+
+- intent: booking_cancel_reservation
+  examples: |
+    - I want to cancel this reservation
+    - I want to cancel the room
+    - I would like to cancel this room
+    - sorry, I don't want to book this room
+    - i don't like this room
+    - Can I cancel this reservation?
+    - Can i cancel this room?
+    - I'd like to cancel a reservation
+    - delete the room
+    - I would like to cancel my reservation 
+    - I booked a family room for 26th this month. I want cancel that
+    - Sorry, how do I cancel my reservation? 
+    - How do I cancel my booking?
+    - I'm regret to say that I want to cancel my booking
+    - So sorry, I wanna cancel my reservation
+    - I think we needn't book rooms 
+    - So sorry, I have some trouble, so I have to cancel my booking
+
+- intent: booking_inform_time # khách hàng cung cấp thời gian dự kiến 
+  examples: |
+    - I will be here within [3 days](intend_time)
+    - I will be here within [three days](intend_time)
+    - I stayed within [two days](intend_time)
+    - I will be here for [four days](intend_time)
+    - I will be here until [early next week] (intend_time)
+    - I will stay until [next weekend](intend_time)
+    - I will stay until [19.05.2022](intend_time)
+    - I will stay until [01/04/2023](intend_time)
+    - [this weekend](intend_time)
+    - [tonight](intend_time)
+    - I will stay until [January 24](intend_time)
+    - I want to stay until [next month](intend_time)
+    - I will be back in [4 days](intend_time)
+    - I will stay until [22/02/2022](intend_time)
+    - I want to stay until [next month](intend_time)
+    - I will be back in [4 days](intend_time)
+    - We will come check in [tomorrow](intend_time)
+    - I want to stay until [a week](intend_time)
+    - I will be back in [14/2/2022](intend_time)
+    - We will come check in [17/07/2022](intend_time)
+    - I want to stay until [a week](intend_time)
+    - I will be back in [14/8/2022](intend_time)
+    - We will come check in [tomorrow](intend_time)
+    - My parents will come [five days](intend_time)
+    - My father want to check in on [January 21](intend_time)
+    - within [a few days](intend_time)
+    - within [tonight](intend_time)
+    - My friend will book [2 days](intend_time) in advance
+    - Someone will check in [next Tuesday](intend_time)
+
+
+- intent: inform_id_num # khách hàng cung cấp chứng minh nhân dân
+  examples: |
+    - my identity card number is [012345678912](id_card)
+    - [235612345621](id_card)
+    - [23561](id_card)
+    - [235 612 34 56](id_card)
+    - My id card is [098734 648231](id_card)
+    - My id card is [098- 734 648- 231](id_card)
+    - My id card is [0 9 8 7 3 4 6 4 8 2 3 1](id_card)
+    - My id card is [09 87-34 and 64 82and 31](id_card)
+    - My id card is [0-9-8-7-3-4-6-4-8-2-3-1](id_card)
+    - The number is [1245 6 865 432 5](id_card)
+    - it is [17c 1 9 00g6 72 h002](id_card)
+    - it is [171-900-672-002](id_card)
+    - it is [171 and 9 and 006-72 and 002](id_card)
+    - it is [17 and 1-9 l 006-72 and h l002 2](id_card)  
+    - looks like [15-789-3728- 911](id_card)
+    - It's [123 and 432-and 642 and 124](id_card)
+    - It's [123-432 642 and 124](id_card)
+    - It's [123-432 642-124](id_card)
+    - Oh, I miss that is [92435678](id_card)
+    - Well, my ID number here is [1234 5678 9234](id_card)
+    - ID card, the number is [125 743 3456 789](id_card)
+    - [124 and 546 and 891 and 134](id_card)
+    - [3452 and 9523 and 4627](id_card)
+    - [one two three-and four five-six seven and eight -nine and zero zero one](id_card)
+    - [34-52 and nine-five nine-three and 4 two zero 7](id_card)
+    - [three four five six and 952 three and 4627](id_card)
+    - [one 2 three and 4 five six 7 and eight nine and zero 0 one](id_card)
+
+- intent: thank
+  examples: |
+    - Cool. Thanks
+    - Great, thanks
+    - Thank you
+    - Thank you Sara
+    - Thank you so much
+    - Thank's!
+    - Thanks
+    - Thanks bot
+    - Thanks for that
+    - Thanks!
+    - amazing, thanks
+    - cheers
+    - cheers bro
+    - cool thank you
+    - cool thanks
+    - cool, thanks
+    - danke
+    - great thanks
+    - ok thanks
+    - ok thanks sara
+    - ok thanks!
+    - perfect thank you
+    - thank u
+    - thank you
+    - thank you anyways
+    - thanks
+    - thanks a bunch for everything
+    - thanks a lot
+    - thanks for forum link, I'll check it out
+    - thanks for the help
+    - thanks this is great news
+    - thanks you
+    - thanks!
+    - thankyou
+    - thnks
+    - thx
+    - yes thanks
+    - thanks for your information
+    - thanks f
+
+- intent: goodbye
+  examples: |
+    - Bye
+    - Bye bye
+    - adios
+    - adios?
+    - bye
+    - bye .
+    - bye :P
+    - bye bot
+    - bye bye
+    - bye bye bot
+    - bye for now
+    - bye udo
+    - bye was nice talking to you
+    - bye!
+    - byee
+    - catch you later
+    - ciao
+    - cya
+    - farewell
+    - good bye
+    - good bye rasa bot!
+    - good night
+    - goodbye
+    - goodbye.
+    - goodnight
+    - gotta go
+    - k byyye #slay
+    - ok Bye
+    - ok bye
+    - ok, bye
+    - ok.bye
+    - see u later
+    - see ya
+    - see you
+    - see you . bye
+    - take care
+    - then bye
+    - tlak to you later
+    - toodle-oo
+    - Exit
+    - Close this talk
+    - byr
+
+# FAQ
+
+- intent: ask_quantity_available_room
+  examples: |
+    - Do you have any vacancy?
+    - Is there any [deluxe](room_info) room?
+    - Is there any [superior](room_info) room?
+    - Do you have any [standard](room_info) rooms?
+    - Do you have any [suite](room_info) room?
+    - Is there any room available?
+    - Is [this](room_info) room available? 
+    - Is [this](room_info) room type available? 
+    - Is [that](room_info) room available? 
+    - Is [that](room_info) room type available? 
+    - How many available rooms are there?
+    - How many rooms are available in your hotel?
+    - How many rooms are available here? 
+    - Does your hotel have an available room?
+    - Is the [single](room_info) room available?
+    - Is the [double](room_info) room available?
+    - Is the [deluxe](room_info) room available?
+    - Is the [suite](room_info) room available?
+    - Is there any [single](room_info) room?
+    - Is there any [double](room_info) room?
+    - Do you have any [standard](room_info) rooms?
+    - I want to ask the [normal](room_info) room
+    - I want to ask the [triple](room_info) room    
+    - I want to ask the [vip](room_info) room
+    - I want to ask the [standard](room_info) room    
+    - I want to ask the [superior](room_info) room
+    - I want to ask the [deluxe](room_info) room
+    - I want to ask if the [deluxe](room_info) room is still available
+    - I want to ask if the [superior](room_info) room is still available
+    - I want to ask if the [vip](room_info) room is still available
+    - Is there any [single](room_info) room?
+    - Is there any [double](room_info) rooms
+    - Is there any [suite](room_info) room
+    - Is there any [standard](room_info)
+    - Do you have any [superior](room_info) rooms?
+    - Do you have any [deluxe](room_info) room ?
+
+- intent: faq_ask_number_room_type
+  examples: |
+    - How many types of room are there here?
+    - What types of rooms are there?
+    - Please, tell me what kind of rooms are available here?
+    - I want to know what kind of rooms are available here?
+    - Types of rooms you have?
+    - Can you tell me list of rooms?
+    - May I know kinds of room in the hotel?
+
+- intent: faq_pricing
+  examples: |
+    - What's the room rate?
+    - What's the price per night?
+    - Do you have a cheap room?
+    - How much is the [suite](room_info) room?
+    - I want to ask how much is the [deluxe](room_info) room?
+    - I want to ask how much is the [vip](room_info) room
+    - I want to ask how much is the [single](room_info) room    
+    - I want to ask the [double](room_info) room
+    - I want to ask the [standard](room_info) room    
+    - I want to ask the [superior](room_info) room
+    - I want to ask the [deluxe](room_info) room    
+    - Are the rates on your website per person or per room?
+    - Do I pay a reservation fee?
+    - Is breakfast included in the price?
+    - Are taxes included in the room rates?
+    - Do you offer special discounts (for seniors, airlines employees, etc)?
+    - Can I use discount vouchers (e.g. issued by magazines, shops, etc.)?
+    - What's the room rate?
+    - What's the price per night?
+    - Do you have a cheap room?
+    - How much is the [single](room_info) room?
+    - How much is the [vip](room_info) room?
+    - How much is the [suite](room_info) room?
+    - How much is the [standard](room_info) room?
+    - How much is the [superior](room_info) room?
+    - How much is the [deluxe](room_info) room?
+    - What is the price of [single](room_info) room?
+    - What is the price of [double](room_info) rooms
+    - What is the price of [suite](room_info) room
+    - What is the price of [standard](room_info)
+    - what is [superior](room_info) rooms rate?
+    - what is [deluxe](room_info) room?
+    - How much is [this](room_info) room?
+    - What is the price of [this](room_info) room?
+    - what is [this](room_info) room rate?
+    - How much is [that](room_info) room?
+    - What is the price of [that](room_info) room?
+    - what is [that](room_info) room rate?
+    - what is [this](room_info) room rate?
+    - How much is [that](room_info) room?
+    - What is the price of [that](room_info) room?
+    - what is the [vip](room_info) room rate?
+    - what  the [triple](room_info) room rate?
+    - what is the [normal](room_info) room rate?
+    - what is [normal](room_info) room rate?
+    - what is the [triple](room_info) room rate?
+
+- intent: ask_other_room
+  examples: |
+    - what about [single](room_info) room?
+    - what about [double](room_info) room?
+    - what about [suite](room_info) room?
+    - what about [standard](room_info) room?
+    - what about [deluxe](room_info) room?
+    - what about [superior](room_info) room?
+    - what about the other room?
+    - what about the other rooms?
+    - how about [single](room_info) room?
+    - how about [double](room_info) room?
+    - how about [suite](room_info) room?
+    - how about [standard](room_info) room?
+    - how about [deluxe](room_info) room?
+    - how about [superior](room_info) room?
+    - What about the rest of the rooms?
+
+- intent: Ask_hotel_operating_time
+  examples: |
+    - What are the current operating procedures to deal with Covid 19?
+    - What are the hotel operating time?
+    - let me know when is the hotel service time?
+    - When is the hotel processing time?
+    - What time can we check in and check out?
+    - Can I arrange an early check in?
+    - Can I arrange a late check out?
+    - What time does the hotel open?
+    - What time does the hotel close?
+
+- intent: faq_credit_cards_and_payments
+  examples: |
+    - Why do you need my credit card details?
+    - Does the hotel need a deposit or a payment in advance?
+    - What types of credit card can I use to guarantee the reservation?
+    - Can I pay for my stay in advance?
+    - Can I pay for my stay at the hotel with a different credit card than the one used to guarantee the reservation?
+    - I do not have a credit card. Can I still book a room?
+    - Is it safe to fill in my credit card number? How secure is the your website?
+
+- intent: faq_searching
+  examples: |
+    - How do I find available hotels for the period I want to stay?
+    - How do I search for hotels by price?
+    - How do I search for hotels with specific facilities such as, for example, a pool?
+    - How do I search for hotels that offer family rooms?
+    - Where can I find the contact details of the hotel?
+    - Where can I find the directions to the hotel?
+
+- synonym: single
+  examples: | 
+    - single
+    - double
+    - suite
+    - standard
+    - superior
+    - deluxe
+    - vip
+    - normal
+    - triple 
+    - resort
+    - villa  
+    - Queen
+    - King
+    - Hollywood Twin Room
+    - Twin
+
+- intent: switch_to_operator
+  examples: |
+    - I want to meet the manager in person
+    - please, Let me say to your manager
+    - I wanna meet your receptionist directly
+    - let me meet the receptionist in person
+    - Excuse me, i wanna discuss directly 
+    - I don't want to talk to you, let me meet a human
+
+
+- intent: out_of_scope
+  examples: |
+    - I am asking you an out of scope question
+    - 4 + 2 = ?
+    - After registration I see that I have an available balance of 0.00000000. What does this balance represent?
+    - Are you ready?
+    - But you're an english site :(
+    - Can I ask you questions first?
+    - Can I die
+    - Can I get a hamburger?
+    - Can YouTube talk?
+    - Can you call me back ?
+    - Can you give me your datacenter's password
+    - Can you give me your datacenter's password?
+    - Can you make sandwiches?
+    - Can you please send me an uber
+    - Do I have to accept?
+    - Do you know [Kevin Pelton](name)
+    - Find nearest pizzahut
+    - Have we met before?
+    - HomeBase is advertised as a community. Is there a way to interact with other members of the community?
+    - How long does it take to set up a Rasa bot?
+    - I already told you! I'm a shitmuncher
+    - I am User
+    - I am an opioid addic
+    - I am an opioid addict
+    - I am hungry
+    - I am trying to build one, and did some research before, but I have not do hand-on work yet
+    - I can barely see this white text on light gray background ...
+    - I changed my mind
+    - I have installed it
+    - I ned a GP in 94301
+    - I need a GP in 94301
+    - I need a girl friend!
+    - I need to eat cake
+    - I wan to buy a plane
+    - I wanna marry you
+    - I want a new laptop
+    - I want french cuisine
+    - I want pizza
+    - I want to die
+    - I want to order pizza
+    - I want to use pipe
+    - I will check
+    - I'm a shitmuncher
+    - Is Rasa really smart?
+    - Is this Goal-Oriented Chatbot?
+    - Is today saturday?
+    - Mail me the guide
+    - Make me a sandwich
+    - NLW
+    - Nice name
+    - Now?
+    - Pizza bot
+    - Recharge
+    - SEL ME SOMETHING
+    - The Try it out is not working
+    - The weather is good
+    - Today
+    - Try it out broken
+    - What day is it today?
+    - What did you eat yesterday?
+    - What do you prefer?
+    - What is todays date
+    - What is your hobbies?
+    - What makes you better than a human?
+    - What's 1 + 1?
+    - What's do YouTube do
+    - What's your backend system?
+    - Where am I?
+    - Who ?
+    - Who are your customers
+    - Why don't you answer?
+    - Why is my TRUST score set to 50 after I completed the registration process?
+    - Won't you ask me how I am?
+    - You'r blue.
+    - [Kristin](name), I want to marry you
+    - a tamed mouse will arrive at your doorstep in the next couple of days
+    - aRE YOU SINGLE
+    - again?
+    - alexa, order 5 tons of natrium chloride
+    - and make chicken noises into the phone
+    - are the newsletter worth the subscription?
+    - are u facebook
+    - are u, facebook?
+    - are you single?
+    - are you dev?
+    - are you russian?
+    - are you sick
+    - are you vegan
+    - better than you
+    - but I just told you that :(
+    - but if rasa is open source why do you have a sales team
+    - buy one please
+    - buy groceries
+    - call me father
+    - can we keep chatting?
+    - can you cheer me up
+    - can you cook dinner
+    - can you give me a cup of coffee
+    - can you help me with the docs?
+    - can you help me with your docs
+    - can you help me with your docs?
+    - can you learn from our conversation?
+    - can you speak about politic ?
+    - can you understand ?
+    - cannot see
+    - chgfhgh
+    - chinese ok?
+    - colder
+    - common, just try
+    - connect to alexa
+    - cr
+    - custom service
+    - did i break you
+    - dinner
+    - do you believe in god?
+    - do you have a phone number?
+    - do you have your photo?
+    - do you know me
+    - do you know ras
+    - do you liek cheese?
+    - do you like football
+    - do you like movies
+    - do you sell vacuum robots?
+    - do you want to marry me?
+    - docs
+    - doctor
+    - everything
+    - example of a chatbot
+    - genocide
+    - get me a club mate
+    - give me a girl friend
+    - give me food
+    - go back
+    - google?
+    - great, I'd like to buy a house
+    - hang on let me find it
+    - have you ever seen [Keith Reilly](name)?
+    - help with [Alma Abrams](name)
+    - help with my life
+    - hey little mama let em whisper in your ear
+    - hey, I contacted you a couple of days ago but didn't get any response, any news?
+    - how
+    - how about NYC
+    - how are [Alicia Jackson](name)'s cats doing?
+    - how are the kids
+    - how can i get them?
+    - how can i test this
+    - how come you say ok ?
+    - how do you learn
+    - how good is Rasa
+    - how it compares to alexa
+    - how long have you been online?
+    - how long will the next version will launch?
+    - how many lines of codes
+    - how much is 10 + 89 ?
+    - how much is 10 + 89
+    - how to get rasa studio
+    - how to go to newyork ?
+    - i am hungry
+    - i am hungry, what should i do?
+    - i am not a developer but need this for business
+    - i am qq
+    - i can't deal with _your_ request
+    - i do not care how are you
+    - i hope you will be better
+    - i immediately need help with implementing the coolest bot you can imagine
+    - i m looking for job
+    - i told you already
+    - i wanna party
+    - i want a non dripping ice cream
+    - i want caffe
+    - i want food
+    - i want good flycam
+    - i want more of you in my life!
+    - i want pizza
+    - i want pizza!!
+    - i want to buy a roomba for my grandson
+    - i want to eat
+    - i want to find new friends
+    - i want to find out what you can build with rasa
+    - i want to fly
+    - i want to grab lunch
+    - i want to know current situtation in pakistan
+    - i want to see your happy customers
+    - i will tame a mouse for you
+    - is [John Lewis](name) still married to you
+    - is it a wasteland full of broken robot parts?
+    - is it allow to
+    - is rasa a studio?
+    - is rasa any good
+    - is that any of your business
+    - isn't the newsletter just spam?
+    - it's a pity
+    - i´m hungry
+    - license
+    - ljljl
+    - lunch
+    - lunch??
+    - machine learning
+    - mail me the steps
+    - mascot means?
+    - more
+    - mountain
+    - my name k
+    - no wait go back i want a dripping ice cream but a cone that catches it so you can drink the ice cream later
+    - offer me lunch
+    - oh my god, not again!
+    - oh wait i gave you my work email address can i change it?
+    - ok one then
+    - on wiche nlp based system are you build?
+    - only that?
+    - order good
+    - order pizza
+    - personal or work?
+    - pizza
+    - please help with my ice cream it's dripping
+    - please hjave lunchj
+    - please hurry, i have deadline in two weeks to deliver the bot it is for very big company
+    - please play music
+    - rasa topics
+    - really? you're so touchy?
+    - refresh
+    - region with no. of records
+    - remember my name
+    - search wikipedia
+    - shitmuncher
+    - show me a picture of a chicken
+    - silly bot
+    - sing me a song
+    - so, I'm helping right now to training you?
+    - some thing else
+    - someone call the police i think the bot died
+    - sorry, i cannot rephrase
+    - sudo make me a sandwich
+    - tell me about yourself
+    - tell me more about next best action
+    - that doesn't sound like a joke
+    - that link doesn't work!
+    - the one that is better than you
+    - tricked  ya
+    - turn off my stove
+    - umm
+    - wait a bit i am still reading
+    - what about wheather
+    - what are contextual AI assistants and how different are they from chatbots?
+    - what are your uses for universities
+    - what did you eat for lunch?
+    - what do oyu think about siri?
+    - what do you think abou siri?
+    - what do you think about [Stanley Ramirez](name)?
+    - what do you think of alexa
+    - what does your soul feel my friend
+    - what doing
+    - what else?
+    - what films do you like
+    - what i do after cd starter-pack-rasa-stack?
+    - what is a discourse?
+    - what is a mascot
+    - what is adlingo
+    - what is differance between bot and mascot?
+    - what is evolution ?
+    - what is google rcs
+    - what is machine learning
+    - what is nice?
+    - what is the capital of delhi
+    - what is the capital of india
+    - what is the current petrol price
+    - what is the day ?
+    - what is the real use case where we can use this one
+    - what is your address?
+    - what is your purpose
+    - what lnu mean?
+    - what the latest news ?
+    - what you ate today?
+    - what's 5 + 5
+    - what's a newsletter?
+    - what's gingerale
+    - what's your wife doing this weekend
+    - what?
+    - whats that
+    - whats the sign
+    - when is the next train is coming?
+    - where do i get install files for mac?
+    - where is Oslo?
+    - where is mexico?
+    - wheres the party?
+    - which city are you talking about?
+    - which email
+    - which email should i send to ?
+    - which file is created first while developing chat bot
+    - which is the LNU asynchronism ?
+    - which kind
+    - who are the engineers at rasa?
+    - who are they?
+    - who is [Sharon Zeches](name)
+    - who is the MD of samsung bangalore ?
+    - who is the president of india ?
+    - who is your favourite robot?
+    - who let the dog out
+    - who was hitler
+    - who will anser my email?
+    - who's Bill Gates?
+    - whta you think about gdpr?
+    - why do you need that?
+    - why its called rasa ?
+    - will u kill me
+    - will u kill me?
+    - winter is already leaving
+    - with you recommend me?
+    - would you like some water
+    - yeah, my dog was drinking a couple of litres of water per day and tried drinking the swimming pool
+    - you already have that
+    - you can learn how to make a coffe
+    - you have children?
+    - you have job opening
+    - you lock sweety
+    - you should learn to count
+    - you will know it from the single red rose it carries between its teeth
+    - you're a woman
+    - i am learning python
+    - CALL THE POLICE
+    - tertyryutyi
+    - wsdrcftvgybhnj
+    - why sky is blue?
+    - what kind of bird are you?
+    - contextua
+    - contextual
+    - talk to me about voulette
+    - voulette voulette
+    - Do you have a demo?
+    - Cars
+    - please voulette
+    - Out of scope question.
+    - i need money
+    - no, i need cash, money! Do you have it ?
+    - the beatles
+    - Hi i want to go palghar
+    - I want to go palghar
+    - your contry name
+    - you girl
+    - gsaf
+    - expert of rasa
+    - i want play ball
+    - flight catch up
+    - how do you like your coffee
+    - Can you get analytics on who I'm chatting with when I use Rasa
+    - coronavirus
+    - have you heard of corona?
+    - where do i type in commandy
+    - where to type in commands
+    - kiss me
+    - you have to
+    - what type of bot?
+    - sfasd
+    - asdkjasdhjkasd
+    - j  bhbhj
+    - eshdtjfjfyk
+    - drhdtjfjfyj
+    - sudo reboot
+    - asdfgasd
+    - asdfgasdas
+
+- intent: mood_great
+  examples: |
+    - I feel great
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+    - good
+    - very good
+    - Your service is very modern. I like it
+    - cool beans
+    - sweet
+    - Cool
+    - cool
+    - cool :)
+    - cool!
+    - coolio
+    - :)
+    - :D
+    - HAHA
+    - I am happy
+    - LOL
+    - Lol
+    - Lol thats funny
+    - Looks nice
+    - WOW
+    - Wow
+    - You are great
+    - You're cute.
+    - You're nice.
+    - You're really coo
+    - happy
+    - i am feeling happy
+    - i am happy
+    - i am happy today
+    - i am very happy with your response
+    - i love you
+    - it's pretty cool
+    - love you
+    - okay Rasabot, you're cool
+    - rasa is awesome
+    - such a great demo
+    - that is funny
+    - that was a great interaction
+    - thats funny
+    - today was a nice day
+    - wow
+    - you are a badass bot!
+    - you are awesome
+    - you are cool
+    - you are cool man
+    - you are doin great
+    - you are funny
+    - you are great
+    - you are my new bestfriend
+    - you seem pretty cool :D
+    - I like you
+    - I love you
+    - you are realy intelligent
+    - I like Rasa
+    - like u
+    - you are so smart
+    - That's awesome.
+    - Got it
+    - you good
+    - Great information
+    - I mean to say that I liked the explanation
+    - Super! I love Rasa
+    - The quality of your service is good.
+    - Your conditions of service are very good.
+    - Your conditions of service are very good.
+
+- intent: mood_disappointed
+  examples: |
+    - I'm really disappointed in you.
+    - I feel disappointed in you.
+    - Your service is too bad.
+    - Too bad!
+    - I'm not really satisfied with the working attitude of your company.
+    - We were absolutely dissatisfied with everything about the service.
+    - We were unhappy with the quality of the service.
+    - I am feeling bad
+    - I am sad
+    - I am super sad
+    - I'm sad
+    - Now I'm sad
+    - This is bad
+    - you are bad
+    - you are bad bot
+    - you make me sad
+    - You are mad
+    - You are rude
+    - bots are bad
+    - iam not feeling good
+    - not good
+    - Thats so rude
+    - sadly
+    - That tool here isnt good
+    - boring
+    - Although I understand your still in development, I feel a little bit disappointed.
+    - you're rather dull
+    - i dont like bots
+    - this is a really frustrating experience
+    - Improve the quality of service.
+    - The quality of automatic booking is too bad and there are many mistakes that make me not confident to book online

@@ -1,0 +1,339 @@
+version: "3.0"
+config:
+  store_entities_as_slots: true
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+########################################################
+intents: 
+- greet 
+- switch_to_operator
+- inform_name 
+- request_booking_room 
+- stop
+- booking_change_reservation
+- booking_this_room
+- book_room_now
+- booking_inform_time
+- inform_id_num
+- confirm
+- deny
+- book_in_advance
+- booking_cancel_reservation
+- ask_quantity_available_room
+- goodbye
+- thank
+- faq_pricing
+- Ask_hotel_operating_time
+- faq_searching
+- faq_credit_cards_and_payments
+- faq_ask_number_room_type
+- ask_other_room
+- out_of_scope
+- mood_great
+- mood_disappointed
+########################################################
+entities: 
+- m_name
+- room_type
+- quantity
+- intend_time
+- id_card
+- change_room_type
+- room_info
+
+########################################################
+forms:
+  room_form:
+    required_slots:
+      - room_type
+      - quantity
+  
+  time_and_id_form:
+    required_slots:
+      - id_card 
+      - intend_time
+
+  change_room_form:
+    ignored_intents: 
+      - ask_quantity_available_room
+    required_slots:
+      - change_room_type
+
+  room_info_form:
+    required_slots:
+      - room_info
+
+
+########################################################           
+slots:
+  m_name:
+    type: text
+    influence_conversation: true
+    mappings: 
+      - type: from_entity
+        entity: m_name
+
+  room_type: 
+    type: text
+    influence_conversation: true
+    mappings: 
+      - type: from_entity
+        entity: room_type
+        intent: request_booking_room
+
+  quantity: 
+    type: text
+    influence_conversation: true
+    mappings: 
+      - type: from_entity
+        entity: quantity
+
+      
+  id_card: 
+    type: text
+    influence_conversation: true
+    mappings: 
+      - type: from_entity
+        entity: id_card
+
+
+  intend_time: 
+    type: text
+    influence_conversation: true
+    mappings: 
+      - type: from_entity
+        entity: intend_time
+
+  change_room_type: 
+    type: text
+    influence_conversation: true
+    mappings: 
+      - type: from_entity
+        entity: change_room_type
+
+  check_intend_time:
+    type: bool
+    influence_conversation: True
+    mappings:
+    - type: custom
+
+  reservation_form:
+    type: text
+    influence_conversation: True
+    mappings:
+    - type: custom
+
+  check_change_room:
+    type: bool
+    influence_conversation: True
+    mappings:
+    - type: custom
+
+  check_room_rate:
+    type: bool
+    influence_conversation: True
+    mappings:
+    - type: custom
+
+  room_info:
+    type: text
+    influence_conversation: True
+    mappings:
+    - type: from_entity
+      entity: room_info   
+
+
+########################################################
+responses:
+## responses assistant supporting hotel
+## responses book room
+  utter_greet_and_ask_name:
+  - text: "Hello, What's your name ?"
+  - text: "How do you do, Can you tell your name?"
+  - text: "hello! what is your name?"
+  - text: "hi! What is your full name?"
+  - text: "Nice to meet you! I'm a bot and you."
+  - text: "Please have a seat. what can i call you?"
+  - text: "It is certainly a pleasure to meet you. Please tell me your name."
+  - text: "I am pleased to meet you! What is your name?"
+  - text: "Have a nice day! How do I call you?"
+  - text: "welcome to hotel, What name is it, please?."
+
+  utter_ask_request:
+  - text: "Can I help you?"
+  - text: "What can I do for you?"
+  - text: "May I help you?"
+  - text: "Can our hotel help you?"
+  # - text: "Would you like me reserve a room for you?"
+  # - text: "Do you have a reservation?"
+  - text: "Can I help you with something?"
+  # - text: "Do you want to make a reservation, check in or check out?"
+  - text: "What do you need?"
+
+  utter_ask_stop:
+  - text: "Are you sure?"
+  - text: "Are you sure you want to stop?"
+  - text: "Do you want to stop?"
+
+  utter_ask_option:
+  - text: "Do you wanna book this room or change room?"
+  - text: "Are you sure for this room or other options?"
+  - text: "What is your choice ? book this room or change room or cancel room?" 
+
+  utter_ask_reservation_form:
+  - text: "Do you book now or make a reservation ?" 
+  - text: "What is your reservation form ? now or in advance ?" 
+
+  utter_ask_intend_time:
+  - condition: 
+    - type: slot
+      name: reservation_form
+      value: "now"
+    text: "How many days will you be here?"    
+  - condition: 
+    - type: slot
+      name: reservation_form
+      value: "reservation"
+    text: "How many days will you come to check in?"
+
+  utter_ask_to_provide_id_num:
+  - text: "Can you inform me your ID number?"
+  - text: "Please, inform me your ID number"
+  - text: "I need your ID number to confirm this reservation"
+  - text: "Excuse me, can you tell me about your ID card to confirm booking?"
+  - text: "To confirm this booking, I need your id card" 
+
+  utter_ask_confirm:
+  - condition: 
+    - type: slot
+      name: reservation_form
+      value: "now"
+    text: "You have booked {quantity} {room_type} room for {intend_time}. Are you sure?"    
+  - condition: 
+    - type: slot
+      name: reservation_form
+      value: "reservation"
+    text: "Have you booked {quantity} {room_type} rooms for {intend_time} in advance. Are you sure?"
+  - text: "Are you sure?"
+
+  utter_get_id_card_on_table:
+  - text: "please, get your id card on the table"
+  - text: "Excuse me, Can you put your id card on the table ?"
+ 
+  utter_ask_other_requests:
+  - text: "Do you have any other option?"
+  - text: "Do you want any other request?"
+ 
+  utter_confirm_cancel_booking_rooms:
+  - text: "Are you sure to cancel this booking?"
+  - text: "Do you really wanna delete this reservation?"
+ 
+  utter_goodbye:
+  - text: "Goodbye, see you again."
+  - text: "Goodbye, see you later."
+ 
+  utter_thanks:
+  - text: "thanks for your trust"
+  - text: "Thank you for using our service"
+ 
+  utter_ask_room_type:
+  - text: "What type of room do you wanna book?"
+  - text: "What kind of room would you like to book?"
+
+  utter_ask_quantity:
+  - text: "How many rooms do you book?"
+  - text: "How many rooms?"
+ 
+  utter_ask_id_card:
+  - text: "Please, tell me the ID number"
+  - text: "Can you inform me your ID number to confirm this reservation? "
+ 
+  utter_ask_time_stay:
+  - text: "How long do you stay?"
+  - text: "How long are you going to stay here?" 
+  - text: "How many days will you stay?"
+
+  utter_ask_room_info:
+  - text: "What kind of room do you want to ask?"
+  - text: "Can you tell me what kind of room you are asking for?"
+
+  utter_ask_time_reservation:
+  - text: "Please, inform me when do you come here ?"
+  - text: "What date do you come to check in?"
+  - text: "How many more days will you check in?"
+  utter_faq_credit_cards_and_payments:
+  - text: "Unfortunately all hotels require a credit card to guarantee a reservation.Your credit card information is sent to us through a secure server. We use the latest, most secure technology available, which encrypts all your personal and credit card details."
+  - text: "Please note that such arrangements depend on each hotel's policy. Therefore, you will need to contact the hotel directly. The hotel's contact details can be found in the confirmation e-mail of your reservation."
+
+  utter_faq_searching:
+  - text: "At the bottom of the overview page of the hotel you can find travel information with details on location and directions. On the top left there is an extensive map of the area around the hotel."
+
+  # utter_faq_ask_number_room_type:   
+  # - text: "Currently our hotel has 6 types of rooms : Standard, Deluxe, Suite, Superior and Single and Double"
+  # - text: "It includes six kinds of rooms :Standard, Deluxe, Suite, Superior and Single and Double "
+
+  utter_ask_change_room_type:
+  - text: "What kind of room do you wanna change to?"
+  - text: "What type of room do you want to switch to?"
+
+  utter_faq_asking_time:
+  - text: "Our hotel operates from 7am to 11:30pm. We hope that you will fulfill your requests and services during this time"
+
+  utter_restart:
+  - text: "restart story"
+
+  utter_switch_to_operator:
+  - text: " Please go to the reception desk in the main lobby to talk in person. Thank you"
+
+  utter_out_of_scope:
+  - text: "Sorry, I can't handle that request."
+
+  utter_survey:
+  - text: "Could you take a moment to rate our Chatbot booking service?"
+    buttons:
+    - title: "⭐: Not Satisfied"
+      payload: /mood_disappointed
+    - title: "⭐⭐: Satisfied"
+      payload: /mood_great
+    - title: "⭐⭐⭐: Extremely satisfied"
+      payload: /mood_great
+    
+  utter_mood_disappointed:
+  - text: "Sorry for making you unsatisfied with our service. Can you leave a comment so we can improve this issue "
+  
+  utter_mood_great:
+  - text: "We sincerely thank you for your trust to use our services. We aim to please. Can you leave us a review?"
+
+  utter_sorry:
+  - text: "I'm really sorry about this. We will improve it soon"
+
+########################################################
+actions:
+- action_save_reservation_form
+- validate_change_room_form
+- validate_room_form 
+- action_inform_quantity_available 
+# - validate_id_card_form 
+- action_reset_data_rooms 
+# - action_check_booking_time 
+- action_save_data
+- action_reset_info_user
+- action_change_data_hotel
+- action_check_date_picker
+# - action_check_change_room_type
+- action_reset_change_room
+# - validate_intend_time_form
+- action_inform_room_rate
+- validate_time_and_id_form
+- action_reset_room_info
+- action_faq_ask_number_room_type
+- action_check_pre_question
+- validate_room_info_form
+- action_save_survey 
+
+
+ 
+
+  

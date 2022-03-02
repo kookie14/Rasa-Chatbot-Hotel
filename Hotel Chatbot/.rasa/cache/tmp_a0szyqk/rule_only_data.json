@@ -1,0 +1,12 @@
+{
+  "rule_only_slots": [
+    "intend_time",
+    "quantity",
+    "room_type",
+    "reservation_form"
+  ],
+  "rule_only_loops": [
+    "time_and_id_form",
+    "change_room_form"
+  ]
+}

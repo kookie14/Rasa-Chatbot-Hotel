@@ -1,0 +1,586 @@
+version: "3.0"
+
+stories: 
+
+- story: greet and ask name
+  steps: 
+  - intent: greet
+  - action: utter_greet_and_ask_name
+  - intent: inform_name
+  - action: utter_ask_request
+
+- story: User interrupts the form and doesn't want to continue
+  steps:
+  - intent: request_booking_room
+  - action: room_form
+  - active_loop: room_form
+  - intent: stop
+  - action: utter_ask_stop 
+  - or:
+    - intent: stop
+    - intent: confirm
+  - action: action_reset_data_rooms
+  - slot_was_set:
+    - room_type: null
+    - quantity: null
+    - intend_time: null
+    - reservation_form: null
+    - room_info: null
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: utter_ask_other_requests
+
+- story: Ask the hotel if there are any rooms available - confirm booking this room type
+  steps:
+  - intent: ask_quantity_available_room
+  - action: room_info_form
+  - active_loop: room_info_form
+  - slot_was_set: 
+    - requested_slot: room_info
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_inform_quantity_available # thông báo số phòng còn trống 
+  # - action: utter_ask_other_requests
+  - intent: booking_this_room
+  - action: action_reset_room_info  # nếu người dung đặt phòng này thì room_type = room_info và room_info = None
+  - slot_was_set:
+    - room_info: null
+  - action: room_form
+  - active_loop: room_form
+  - slot_was_set: 
+    - requested_slot: quantity
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_ask_option
+  - checkpoint: checkpoint_request_booking
+
+- story: ask for room rate - confirm booking this room type
+  steps:
+  - intent: faq_pricing
+  - action: room_info_form
+  - active_loop: room_info_form
+  - slot_was_set: 
+    - requested_slot: room_info
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_inform_room_rate # thông báo giá phòng 
+  # - action: utter_ask_other_requests
+  - intent: booking_this_room
+  - action: action_reset_room_info  # nếu người dung đặt phòng này thì room_type = room_info và room_info = None
+  - slot_was_set:
+    - room_info: null
+  - action: room_form
+  - active_loop: room_form
+  - slot_was_set: 
+    - requested_slot: quantity
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_ask_option
+  - checkpoint: checkpoint_request_booking
+
+- story: the users ask for other room rates
+  steps:
+  - intent: ask_other_room
+  - action: room_info_form
+  - active_loop: room_info_form
+  - slot_was_set: 
+    - requested_slot: room_info
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_check_pre_question
+  - slot_was_set:
+    - check_room_rate: True
+  - action: action_inform_room_rate # thông báo giá phòng 
+  - intent: booking_this_room
+  - action: action_reset_room_info  # nếu người dung đặt phòng này thì room_type = room_info và room_info = None
+  - slot_was_set:
+    - room_info: null
+  - action: room_form
+  - active_loop: room_form
+  - slot_was_set: 
+    - requested_slot: quantity
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_ask_option
+  - checkpoint: checkpoint_request_booking
+
+- story: the users ask for other room available 
+  steps:
+  - intent: ask_other_room
+  - action: room_info_form
+  - active_loop: room_info_form
+  - slot_was_set: 
+    - requested_slot: room_info
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_check_pre_question
+  - slot_was_set:
+    - check_room_rate: False
+  - action: action_inform_quantity_available
+  - intent: booking_this_room
+  - action: action_reset_room_info  # nếu người dung đặt phòng này thì room_type = room_info và room_info = None
+  - slot_was_set:
+    - room_info: null
+  - action: room_form
+  - active_loop: room_form
+  - slot_was_set: 
+    - requested_slot: quantity
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_ask_option
+  - checkpoint: checkpoint_request_booking
+
+- story: booking with available room
+  steps:
+  - intent: request_booking_room
+  - action: room_form
+  - active_loop: room_form
+  - slot_was_set:
+    - requested_slot: room_type
+    - requested_slot: quantity
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_ask_option
+  - checkpoint: checkpoint_request_booking
+
+- story: change room - checkpoint - confirm
+  steps:
+  - checkpoint: checkpoint_request_booking
+  - intent: booking_change_reservation   
+  - action: change_room_form
+  - active_loop: change_room_form
+  - slot_was_set: 
+    - requested_slot: change_room_type
+  - slot_was_set: 
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_ask_confirm
+  - intent: confirm
+  - action: action_reset_change_room  
+  - slot_was_set:
+    - change_room_type: null
+  - action: utter_ask_option
+
+- story: change room - checkpoint - deny
+  steps:
+  - checkpoint: checkpoint_request_booking
+  - intent: booking_change_reservation   
+  - action: change_room_form
+  - active_loop: change_room_form
+  - slot_was_set: 
+    - requested_slot: change_room_type
+  - slot_was_set: 
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_ask_confirm
+  - intent: deny
+  - action: action_reset_change_room  
+  - slot_was_set:
+    - change_room_type: null
+  - action: utter_ask_option
+
+- story: change room - No checkpoint - confirm
+  steps:
+  - intent: booking_change_reservation   
+  - action: change_room_form
+  - active_loop: change_room_form
+  - slot_was_set: 
+    - requested_slot: change_room_type
+  - slot_was_set: 
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_ask_confirm
+  - intent: confirm
+  - action: action_reset_change_room  
+  - slot_was_set:
+    - change_room_type: null
+  - action: utter_ask_option
+
+- story: change room - No checkpoint - deny
+  steps:
+  - intent: booking_change_reservation   
+  - action: change_room_form
+  - active_loop: change_room_form
+  - slot_was_set: 
+    - requested_slot: change_room_type
+  - slot_was_set: 
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_ask_confirm
+  - intent: deny
+  - action: action_reset_change_room  
+  - slot_was_set:
+    - change_room_type: null
+  - action: utter_ask_option
+
+###################################################################################
+- story: affirm booking this room now - confirm
+  steps: 
+  - checkpoint: checkpoint_request_booking
+  - or: 
+    - intent: booking_this_room
+    - intent: confirm 
+  - action: utter_ask_reservation_form
+  - intent: book_room_now
+  - action: utter_ask_time_stay 
+  - action: action_save_reservation_form
+  - intent: booking_inform_time
+  - action: time_and_id_form
+  - active_loop: time_and_id_form
+  - slot_was_set:
+    - requested_slot: intend_time 
+    - requested_slot: id_card
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_ask_confirm 
+  - intent: confirm
+  - action: utter_get_id_card_on_table
+  - action: action_change_data_hotel
+  - action: action_save_data
+  - action: action_reset_data_rooms
+  - slot_was_set:
+    - room_type: null
+    - quantity: null
+    - intend_time: null
+    - reservation_form: null
+    - room_info: null
+    - check_room_rate: null
+  - action: utter_ask_other_requests  # hỏi khách hàng xem có yêu cầu nào khác không
+
+- story: affirm booking this room now - deny
+  steps: 
+  - checkpoint: checkpoint_request_booking
+  - or: 
+    - intent: booking_this_room
+    - intent: confirm 
+  - action: utter_ask_reservation_form
+  - intent: book_room_now
+  - action: utter_ask_time_stay 
+  - action: action_save_reservation_form
+  - intent: booking_inform_time
+  - action: time_and_id_form
+  - active_loop: time_and_id_form
+  - slot_was_set:
+    - requested_slot: intend_time 
+    - requested_slot: id_card
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_ask_confirm 
+  - intent: deny
+  - action: action_reset_data_rooms
+  - slot_was_set:
+    - room_type: null
+    - quantity: null
+    - intend_time: null
+    - reservation_form: null
+    - check_room_rate: null
+    - room_info: null
+  - action: utter_ask_other_requests
+
+- story: affirm booking room in advance with other requests - confirm
+  steps: 
+  - checkpoint: checkpoint_request_booking
+  - or: 
+    - intent: booking_this_room
+    - intent: confirm 
+  - action: utter_ask_reservation_form
+  - intent: book_in_advance
+  - action: action_save_reservation_form  # confidence = 0
+  - action: time_and_id_form
+  - active_loop: time_and_id_form
+  - slot_was_set:
+    - requested_slot: intend_time 
+    - requested_slot: id_card
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_ask_confirm 
+  - intent: confirm 
+  - action: utter_get_id_card_on_table # confidence = 0
+  - action: action_change_data_hotel
+  - action: action_save_data
+  - action: action_reset_data_rooms
+  - slot_was_set:
+    - room_type: null
+    - quantity: null
+    - intend_time: null
+    - reservation_form: null
+    - room_info: null
+    - check_room_rate: null
+  - action: utter_ask_other_requests 
+
+- story: affirm booking room in advance with other requests - deny
+  steps: 
+  - checkpoint: checkpoint_request_booking
+  - or: 
+    - intent: booking_this_room
+    - intent: confirm 
+  - action: utter_ask_reservation_form
+  - intent: book_in_advance
+  - action: action_save_reservation_form
+  - action: time_and_id_form
+  - active_loop: time_and_id_form
+  - slot_was_set:
+    - requested_slot: intend_time 
+    - requested_slot: id_card
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_ask_confirm 
+  - intent: deny
+  - action: action_reset_data_rooms
+  - slot_was_set:
+    - room_type: null
+    - quantity: null
+    - intend_time: null
+    - reservation_form: null
+    - room_info: null
+    - check_room_rate: null
+  - action: utter_ask_other_requests 
+
+- story: affirm booking this room now - confirm - No checkpoint
+  steps: 
+  - or: 
+    - intent: booking_this_room
+    - intent: confirm 
+  - action: utter_ask_reservation_form
+  - intent: book_room_now
+  - action: utter_ask_time_stay 
+  - action: action_save_reservation_form
+  - intent: booking_inform_time
+  - action: time_and_id_form
+  - active_loop: time_and_id_form
+  - slot_was_set:
+    - requested_slot: intend_time 
+    - requested_slot: id_card
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_ask_confirm 
+  - intent: confirm
+  - action: utter_get_id_card_on_table
+  - action: action_change_data_hotel
+  - action: action_save_data
+  - action: action_reset_data_rooms
+  - slot_was_set:
+    - room_type: null
+    - quantity: null
+    - intend_time: null
+    - reservation_form: null
+    - room_info: null
+    - check_room_rate: null
+  - action: utter_ask_other_requests  # hỏi khách hàng xem có yêu cầu nào khác không
+
+- story: affirm booking this room now - deny - No checkpoint
+  steps: 
+  - or: 
+    - intent: booking_this_room
+    - intent: confirm 
+  - action: utter_ask_reservation_form
+  - intent: book_room_now
+  - action: utter_ask_time_stay 
+  - action: action_save_reservation_form
+  - intent: booking_inform_time
+  - action: time_and_id_form
+  - active_loop: time_and_id_form
+  - slot_was_set:
+    - requested_slot: intend_time 
+    - requested_slot: id_card
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_ask_confirm 
+  - intent: deny
+  - action: action_reset_data_rooms
+  - slot_was_set:
+    - room_type: null
+    - quantity: null
+    - intend_time: null
+    - reservation_form: null
+    - check_room_rate: null
+    - room_info: null
+  - action: utter_ask_other_requests
+
+- story: affirm booking room in advance with other requests - confirm - No checkpoint
+  steps: 
+  - or: 
+    - intent: booking_this_room
+    - intent: confirm 
+  - action: utter_ask_reservation_form
+  - intent: book_in_advance
+  - action: action_save_reservation_form  # confidence = 0
+  - action: time_and_id_form
+  - active_loop: time_and_id_form
+  - slot_was_set:
+    - requested_slot: intend_time 
+    - requested_slot: id_card
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_ask_confirm 
+  - intent: confirm 
+  - action: utter_get_id_card_on_table # confidence = 0
+  - action: action_change_data_hotel
+  - action: action_save_data
+  - action: action_reset_data_rooms
+  - slot_was_set:
+    - room_type: null
+    - quantity: null
+    - intend_time: null
+    - reservation_form: null
+    - room_info: null
+    - check_room_rate: null
+  - action: utter_ask_other_requests 
+
+- story: affirm booking room in advance with other requests - deny - No checkpoint
+  steps: 
+  - or: 
+    - intent: booking_this_room
+    - intent: confirm 
+  - action: utter_ask_reservation_form
+  - intent: book_in_advance
+  - action: action_save_reservation_form
+  - action: time_and_id_form
+  - active_loop: time_and_id_form
+  - slot_was_set:
+    - requested_slot: intend_time 
+    - requested_slot: id_card
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_ask_confirm 
+  - intent: deny
+  - action: action_reset_data_rooms
+  - slot_was_set:
+    - room_type: null
+    - quantity: null
+    - intend_time: null
+    - reservation_form: null
+    - room_info: null
+    - check_room_rate: null
+  - action: utter_ask_other_requests 
+
+##########################################################
+
+- story: Cancel booking rooms - confirm
+  steps:
+  - checkpoint: checkpoint_request_booking
+  - intent: booking_cancel_reservation
+  - action: utter_confirm_cancel_booking_rooms
+  - intent: confirm
+  - action: action_reset_data_rooms
+  - slot_was_set:
+    - room_type: null
+    - quantity: null
+    - intend_time: null
+    - reservation_form: null
+    - room_info: null
+    - check_room_rate: null
+  - action: utter_ask_other_requests
+
+- story: Cancel booking rooms - deny - mood disappointed
+  steps:
+  - checkpoint: checkpoint_request_booking
+  - intent: booking_cancel_reservation
+  - action: utter_confirm_cancel_booking_rooms
+  - intent: confirm
+  - action: action_reset_data_rooms
+  - slot_was_set:
+    - room_type: null
+    - quantity: null
+    - intend_time: null
+    - reservation_form: null
+    - room_info: null
+    - check_room_rate: null
+  - action: utter_ask_other_requests
+  - intent: deny
+  - action: action_reset_info_user
+  - slot_was_set: 
+    - m_name: null
+    - id_card: null
+  - action: utter_survey
+  - intent: mood_disappointed
+  - action: utter_mood_disappointed
+  - action: action_listen
+  - action: action_save_survey
+  - action: utter_sorry
+  - action: utter_goodbye
+  - action: action_restart
+
+- story: Cancel booking rooms - deny - mood great
+  steps:
+  - checkpoint: checkpoint_request_booking
+  - intent: booking_cancel_reservation
+  - action: utter_confirm_cancel_booking_rooms
+  - intent: confirm
+  - action: action_reset_data_rooms
+  - slot_was_set:
+    - room_type: null
+    - quantity: null
+    - intend_time: null
+    - reservation_form: null
+    - room_info: null
+    - check_room_rate: null
+  - action: utter_ask_other_requests
+  - intent: deny
+  - action: action_reset_info_user
+  - slot_was_set: 
+    - m_name: null
+    - id_card: null
+  - action: utter_survey
+  - intent: mood_great
+  - action: utter_mood_great
+  - action: action_listen
+  - action: action_save_survey
+  - action: utter_thanks
+  - action: utter_goodbye
+  - action: action_restart
+
+- story: delete user data if user has no other request - mood great
+  steps: 
+  - intent: deny
+  - action: action_reset_info_user
+  - slot_was_set: 
+    - m_name: null
+    - id_card: null
+  - action: utter_survey
+  - intent: mood_great
+  - action: utter_mood_great
+  - action: action_listen
+  - action: action_save_survey
+  - action: utter_thanks
+  - action: utter_goodbye
+  - action: action_restart
+
+- story: delete user data if user has no other request - mood disappointed
+  steps: 
+  - intent: deny
+  - action: action_reset_info_user
+  - slot_was_set: 
+    - m_name: null
+    - id_card: null
+  - action: utter_survey
+  - intent: mood_great
+  - action: utter_mood_disappointed
+  - action: action_listen
+  - action: action_save_survey
+  - action: utter_sorry
+  - action: utter_goodbye
+  - action: action_restart
+
+- story: test date picker
+  steps:
+  - intent: booking_inform_time 
+  - action: action_check_date_picker
+  

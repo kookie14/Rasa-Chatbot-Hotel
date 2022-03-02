@@ -1,0 +1,7 @@
+room_type,quantity,room_rate
+single,9,20$
+double,10,30$
+suite,10,50$
+standard,10,25$
+superior,10,10$
+deluxe,10,60$

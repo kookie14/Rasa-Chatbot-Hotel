@@ -1,0 +1,278 @@
+version: "3.0"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: thank
+  - action: utter_thanks
+
+- rule: save data every time the user comfirm and puts the card on the table
+  steps:
+  - action: utter_get_id_card_on_table
+  - action: action_change_data_hotel
+  - action: action_save_data
+  - action: action_reset_data_rooms
+  - slot_was_set:
+    - room_type: null
+    - quantity: null
+    - intend_time: null
+    - reservation_form: null
+  - action: utter_ask_other_requests 
+
+#################################
+# - rule: Ask the hotel if there are any rooms available - room form 
+#   condition:
+#   - active_loop: room_form
+#   steps:
+#   - intent: ask_quantity_available_room
+#   - action: room_info_form
+#   - active_loop: room_info_form
+#   - slot_was_set: 
+#     - requested_slot: room_info
+#   - slot_was_set:
+#     - requested_slot: null
+#   - active_loop: null
+#   - action: action_inform_quantity_available
+#   - action: room_form
+#   - active_loop: room_form
+
+- rule: Ask the hotel if there are any rooms available - time and id card form
+  condition:
+  - active_loop: time_and_id_form
+  steps:
+  - intent: ask_quantity_available_room
+  - action: room_info_form
+  - active_loop: room_info_form
+  - slot_was_set: 
+    - requested_slot: room_info
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_inform_quantity_available
+  - action: time_and_id_form
+  - active_loop: time_and_id_form
+
+# - rule: Ask the hotel if there are any rooms available - change room form 
+#   condition:
+#   - active_loop: change_room_form
+#   steps:
+#   - intent: ask_quantity_available_room
+#   - action: room_info_form
+#   - active_loop: room_info_form
+#   - slot_was_set: 
+#     - requested_slot: room_info
+#   - slot_was_set:
+#     - requested_slot: null
+#   - active_loop: null
+#   - action: action_inform_quantity_available
+#   - action: change_room_form
+#   - active_loop: change_room_form
+
+- rule: Ask the hotel if there are any rooms available 
+  steps:
+  - intent: ask_quantity_available_room
+  - action: room_info_form
+  - active_loop: room_info_form
+  - slot_was_set: 
+    - requested_slot: room_info
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_inform_quantity_available # thông báo số phòng còn trống 
+
+- rule: the users ask for other room available 
+  steps:
+  - intent: ask_other_room
+  - action: room_info_form
+  - active_loop: room_info_form
+  - slot_was_set: 
+    - requested_slot: room_info
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_check_pre_question
+  - slot_was_set:
+    - check_room_rate: False
+  - action: action_inform_quantity_available
+
+#################################
+
+# - rule: the user asks for the room rate - room form
+#   condition:
+#   - active_loop: room_form
+#   steps:
+#   - intent: faq_pricing
+#   - action: room_info_form
+#   - active_loop: room_info_form
+#   - slot_was_set: 
+#     - requested_slot: room_info
+#   - slot_was_set:
+#     - requested_slot: null
+#   - active_loop: null
+#   - action: action_inform_room_rate
+#   - action: room_form
+#   - active_loop: room_form
+
+- rule: the user asks for the room rate - intend time and id card form 
+  condition:
+  - active_loop: time_and_id_form
+  steps:
+  - intent: faq_pricing
+  - action: room_info_form
+  - active_loop: room_info_form
+  - slot_was_set: 
+    - requested_slot: room_info
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_inform_room_rate
+  - action: time_and_id_form
+  - active_loop: time_and_id_form
+
+# - rule: the user asks for the room rate - change_room_form
+#   condition:
+#   - active_loop: change_room_form
+#   steps:
+#   - intent: faq_pricing
+#   - action: room_info_form
+#   - active_loop: room_info_form
+#   - slot_was_set: 
+#     - requested_slot: room_info
+#   - slot_was_set:
+#     - requested_slot: null
+#   - active_loop: null
+#   - action: action_inform_room_rate
+#   - action: change_room_form
+#   - active_loop: change_room_form
+
+- rule: ask for room rate - deny booking this room type
+  steps:
+  - intent: faq_pricing
+  - action: room_info_form
+  - active_loop: room_info_form
+  - slot_was_set: 
+    - requested_slot: room_info
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_inform_room_rate # thông báo giá phòng 
+
+- rule: the users ask for other room rates
+  steps:
+  - intent: ask_other_room
+  - action: room_info_form
+  - active_loop: room_info_form
+  - slot_was_set: 
+    - requested_slot: room_info
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_check_pre_question
+  - slot_was_set:
+    - check_room_rate: True
+  - action: action_inform_room_rate
+
+##########################################
+
+- rule: Activate room form
+  steps:
+  - intent: request_booking_room
+  - action: room_form
+  - active_loop: room_form
+
+- rule: Activate change room form
+  steps:
+  - intent: booking_change_reservation   
+  - action: change_room_form
+  - active_loop: change_room_form
+
+# - rule: Activate intend time and id card form
+#   steps:
+#   - intent: booking_inform_time
+#   - action: time_and_id_form
+#   - active_loop: time_and_id_form
+
+- rule: Activate intend time and id card form - book in advance
+  steps:
+  - intent: book_in_advance
+  - action: action_save_reservation_form 
+  - action: time_and_id_form
+  - active_loop: time_and_id_form
+
+##########################################################
+
+- rule: Submit room form
+  condition:
+  - active_loop: room_form
+  steps:
+  - action: room_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_ask_option
+
+# - rule: Submit change room form
+#   condition:
+#   - active_loop: change_room_form
+#   steps:
+#   - action: change_room_form
+#   - active_loop: null
+#   - slot_was_set:
+#     - requested_slot: null
+#   - action: action_reset_change_room
+#   - action: utter_ask_option
+
+- rule: Submit intend time and id card form
+  condition:
+  - active_loop: time_and_id_form
+  steps:
+  - action: time_and_id_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_ask_confirm
+
+########################################## 
+- rule: reply every time the user asks for a form of payment
+  steps:
+  - intent: faq_credit_cards_and_payments
+  - action: utter_faq_credit_cards_and_payments
+
+- rule: answer every time the user asks how many room types the hotel has
+  steps: 
+  - intent: faq_ask_number_room_type
+  - action: action_faq_ask_number_room_type
+
+- rule: reply every time the user asks the hotel operating time
+  steps:
+  - intent: Ask_hotel_operating_time
+  - action: utter_faq_asking_time
+
+- rule: respond to every user who searches for something
+  steps:
+  - intent: faq_searching
+  - action: utter_faq_searching
+
+- rule: switch to operator
+  steps:
+  - intent: switch_to_operator
+  - action: utter_switch_to_operator
+
+- rule: out of scope
+  steps:
+  - intent: out_of_scope
+  - action: utter_out_of_scope
+
+# - rule: save survey
+#   steps:
+#   - action: action_listen
+#   - action: action_save_survey
+#   - action: utter_thanks
+#   - action: utter_goodbye
+#   - action: action_restart
